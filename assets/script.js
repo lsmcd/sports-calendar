@@ -1,0 +1,4 @@
+var getSeasons = function(){
+
+
+}

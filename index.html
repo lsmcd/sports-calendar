@@ -6,7 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/script.js">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
 </head>
+<style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
 <body>
     <section class="hero is-link">
         <div class="hero-body">
@@ -32,6 +39,8 @@
             </div>
         </div>
     </section>
+    <div id="map"> </div>
+    <script src="assets/script.js"></script>
     <section class="section">
         <div class="container">
             <div class="columns is-flex is-vcentered">
@@ -39,7 +48,6 @@
                     <div class="box">
                         <div class="control">
                             <button class="button is-outlined is-pulled-right"><a href="{{ weather.city }}/delete">Delete</a></button>
-                        </div>
 
                         <div class='content'>
                             <span class ="title" style="text-transform:capitalize;">{{ weather.city }}</span>
@@ -50,7 +58,7 @@
                             <br> Wind: {{ weather.wind_speed }}km/h
                             <br> Humidity: {{ weather.humidity }}%
                             <br></br>
-                            <br> {{ Date.time }} (UTC/GMT)
+                            <br> {{ Date.time }} (UTC/GMT) 
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
 </head>
 <style>
     body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    #map { position: absolute; top: 0; bottom: 0; width:40%; }
 </style>
 <body>
     <section class="hero is-link">
@@ -24,6 +24,12 @@
             </div>
         </div>
     </section>
+
+
+    <div id="map"> </div>
+
+
+
     <section class="section">
         <div class="container">
             <div class="columns">
@@ -39,7 +45,7 @@
             </div>
         </div>
     </section>
-    <div id="map"> </div>
+
     <script src="assets/script.js"></script>
     <section class="section">
         <div class="container">
@@ -51,20 +57,22 @@
 
                         <div class='content'>
                             <span class ="title" style="text-transform:capitalize;">{{ weather.city }}</span>
-                            <br> Temperature: {{ weather.temperature }}° C
-                            <br>Feels Like: {{ weather.feels_like }}° C
-                            <br>Temp High: {{ weather.temp_max }}° C
-                            <br>Temp Low: {{ weather.temp_min }}° C
-                            <br> Wind: {{ weather.wind_speed }}km/h
-                            <br> Humidity: {{ weather.humidity }}%
-                            <br></br>
-                            <br> {{ Date.time }} (UTC/GMT) 
+                            <p id="temp">  Temperature: {{ weather.temperature }}° C </p> 
+                            <p id="feel">Feels Like: {{ weather.feels_like }}° C</p>
+                            <p id="tempHigh">Temp High: {{ weather.temp_max }}° C</p>
+                            <p id="tempLow">Temp Low: {{ weather.temp_min }}° C</p>
+                            <p id="wind"> Wind: {{ weather.wind_speed }}km/h</p>
+                            <p id="Hum"> Humidity: {{ weather.humidity }}%</p>
+                            <p id="info"> Longitude & Latitude </p>
+                            <p id="date"> {{ Date.time }} (UTC/GMT) </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
     <footer class="footer">
         <div class="content has-text-centered">
             <p></p>

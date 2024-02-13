@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weather Dashboard</title>
+    <title>Weather Click</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/script.js">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
@@ -18,10 +18,11 @@
     <section class="hero is-link">
         <div class="hero-body">
             <div class="container">
-                <div class="column is-offset-7 is-7">     
+                <div class="column is-offset-5 is-5">     
                 <h1 class="title">
-                    Find the Weather 
+                    Welcome to Weather-Click!
                 </h1>
+                </div>
             </div>
         </div>
     </section>
@@ -31,10 +32,10 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-offset-6 is-6">
+                <div class="column is-offset-5 is-5">
                     <div class="field has-addons">
                         <div class="control is-expanded">
-                          <input class="input" type="text" placeholder="Add a city">
+                          <input class="input" type="text" placeholder="Find your city">
                         </div>
                         <div class="control">
                           <a class="button is-info">
@@ -53,8 +54,8 @@
     <script src="assets/script.js"></script>
     <section class="section">
         <div class="container">
-            <div class="columns is-flex is-vcentered">
-                <div class="column">
+            <div class="columns">
+                <div class="column is-offset-5">
                     <div class="box">
                         <div class="control">
                             <button class="button is-outlined is-pulled-right"><a href="{{ weather.city }}/delete">Delete</a></button>

@@ -83,7 +83,7 @@ function getWeather(lat, lon){
         $("#feels-like").text("Feels like: " + apparentTemperature);
         $("#wind").text("Wind: " + windSpeed);
         $("#weather").text("Weather: " + weather);
-        $("#percipitation").text("Precipitation: " + precipitation);
+        $("#precipitation").text("Precipitation: " + precipitation);
         $("#coordinates").text("Latitude: " + latitude + " Longitude: " + longitude);
     });
 }

@@ -21,15 +21,15 @@ map.on('mousemove', (e) => {
 
     //console.log(lat, lng)
  
-     document.getElementById('info').innerHTML =
-     
-     // `e.point` is the x, y coordinates of the `mousemove` event
-     // relative to the top-left corner of the map.
-     JSON.stringify(e.point) +
-     '<br />' +
-     // `e.lngLat` is the longitude, latitude geographical position of the event.
-     JSON.stringify(e.lngLat.wrap());
-     });
+    document.getElementById('info').innerHTML =
+    
+    // `e.point` is the x, y coordinates of the `mousemove` event
+    // relative to the top-left corner of the map.
+    JSON.stringify(e.point) +
+    '<br />' +
+    // `e.lngLat` is the longitude, latitude geographical position of the event.
+    JSON.stringify(e.lngLat.wrap());
+    });
  
 map.on('click',  (e) => {
     var point = e.lngLat;
@@ -39,22 +39,52 @@ map.on('click',  (e) => {
     getWeather(lat, lng);
 });
 function getWeather(lat, lon){
-    url = `https://api.open-meteo.com/v1/forecast`
-    url += `?latitude=` + lat
-    url += `&longitude=` + lon
-    url += `&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&timeformat=unixtime&timezone=auto`
-    if (localStorage.getItem("imperial")){
-        url += `&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch`
+    url = `https://api.open-meteo.com/v1/forecast`;
+    url += `?latitude=` + lat;
+    url += `&longitude=` + lon;
+    url += `&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timeformat=unixtime&timezone=auto`;
+    if (localStorage.getItem("fahrenheit")){
+        url += `&temperature_unit=fahrenheit`;
+    };
+    if (localStorage.getItem("miles")){
+        url += `&wind_speed_unit=mph`;
+        url += `&precipitation_unit=inch`;
     };
     fetch(url)
     .then((response) => response.json())
     .then(function(data){
         var temperature = data.current.temperature_2m + " " + data.current_units.temperature_2m;
         var relativeHumidity = data.current.relative_humidity_2m + " " + data.current_units.relative_humidity_2m;
+        var apparentTemperature = data.current.apparent_temperature + " " + data.current_units.apparent_temperature;
+        var precipitation = data.current.precipitation + " " + data.current_units.precipitation;
         var weather = getWeatherByCode(data.current.weather_code);
         var windSpeed = data.current.wind_speed_10m + " " + data.current_units.wind_speed_10m;
-        var apparentTemperature = data.current.apparent_temperature + " " + data.current_units.apparent_temperature;
-        console.log(temperature, relativeHumidity, weather, windSpeed, apparentTemperature)
+        var latitude = data.latitude;
+        var longitude = data.longitude;
+
+        //? Probably not worth going through the hassle
+        // var dailyMax = data.daily.temperature_2m_max[0] + " " + data.daily_units.temperature_2m_max;
+        // var dailyMin = data.daily.temperature_2m_min[0] + " " + data.daily_units.temperature_2m_min;
+        // var date = dayjs.unix(data.current.time + data.utc_offset_seconds);
+        // var dailyForecastDate = dayjs.unix(data.daily.time[0]);
+        // if (localStorage.getItem("monthdayyear")){
+        //     date = date.format("MM/D/YYYY");
+        //     dailyForecastDate = dailyForecastDate.format("MM/D/YYYY");
+        // } else {
+        //     date = date.format("ha D/MM/YY");
+        //     dailyForecastDate = dailyForecastDate.format("D/MM/YYYY");
+        // }
+        // $("#dailyMaxMin").text("Daily Max and Min: " + dailyMax + ", " + dailyMin);
+        // $("#date").text("Location Date: " + date);
+
+        console.log(temperature, relativeHumidity, apparentTemperature, precipitation, weather, windSpeed);
+        $("#temperature").text("Temperature: " + temperature);
+        $("#humidity").text("Relative Humidity: " + relativeHumidity);
+        $("#feels-like").text("Feels like: " + apparentTemperature);
+        $("#wind").text("Wind: " + windSpeed);
+        $("#weather").text("Weather: " + weather);
+        $("#precipitation").text("Precipitation: " + precipitation);
+        $("#coordinates").text("Latitude: " + latitude + " Longitude: " + longitude);
     });
 }
 function getWeatherByCode(weatherCode){

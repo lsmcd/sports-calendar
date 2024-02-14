@@ -93,7 +93,7 @@
             <p></p>
         </div>
     </footer>
-    <div class="dropdown is-hoverable">
+    <div id="settings" class="dropdown is-hoverable is-right">
         <div class="dropdown-trigger">
             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                 <span class="icon" >
@@ -101,19 +101,21 @@
                 </span>
             </button>
         </div>
-        <div class="dropdown-menu is-gray-lighter" id="dropdown-menu" role="menu">
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
             <div class="dropdown-content">
-                <a href="#" class="dropdown-item is-active is-gray-lighter">
+                <a id="imperial" class="dropdown-item is-active">
                     Imperial Units
                     <span class="icon">
                     <i class="mdi mdi-checkbox-blank"></i>
                 </a>
-                <a href="#" class="dropdown-item is-active">
+                <hr class="dropdown-divider">
+                <a id="fahrenheit" class="dropdown-item is-active">
                     Fahrenheit
                     <span class="icon">
                     <i class="mdi mdi-checkbox-blank"></i>
                 </a>
-                <a href="#" class="dropdown-item is-active">
+                <hr class="dropdown-divider">
+                <a id="dateorder" class="dropdown-item is-active">
                     Month/Day/Year
                     <span class="icon">
                     <i class="mdi mdi-checkbox-blank"></i>
@@ -121,8 +123,14 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_utc)</script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/timezone.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_timezone)</script>
     <script src="assets/script.js"></script>
-    <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js'></script>
 </body>
 </html>
 

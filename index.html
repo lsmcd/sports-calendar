@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 </head>
 <style>
     body { margin: 0; padding: 0; }
@@ -25,13 +27,13 @@
                     Welcome to Weather-Click!
                 </h1>
                 <div class="field has-addons">
-                    <div class="control is-expanded">
+                    <!--<div class="control is-expanded">
                       <input class="input" type="text" placeholder="Search Bar">
                     </div>
                     <div class="control">
                       <a  class="button is-info">
                         Search
-                      </a>
+                      </a>-->
                     </div>
                   </div>
                 </div>
@@ -39,7 +41,6 @@
         </div>
     </section>
 
-<div id="info"></div>
     <div id="map"> </div>
 
     <section class="section">
@@ -47,14 +48,14 @@
             <div class="columns">
                 <div class="column is-offset-5 is-5">
                     <div class="field has-addons">
-                        <div class="control is-expanded">
+                        <!--<div class="control is-expanded">
                           <input class="input" type="text" placeholder="Find your city">
                         </div>
                         <div class="control">
                           <a class="button is-info">
                             Search
                           </a>
-                        </div>
+                        </div>-->
                       </div>
                             </div>
                         </div>
@@ -72,7 +73,7 @@
                             <button class="button is-outlined is-pulled-right"><a href="{{ weather.city }}/delete">Delete</a></button>
 
                         <div class='content'>
-                            <span class ="title" style="text-transform:capitalize;">{{ weather.city }}</span>
+                            <span id='city' class ="title" style="text-transform:capitalize;">{{ weather.city }}</span>
                             <p id="temperature">  Temperature: {{ weather.temperature }}° C </p> 
                             <p id="humidity"> Humidity: {{ weather.humidity }}%</p>
                             <p id="feels-like">Feels Like: {{ weather.feels_like }}° C</p>
@@ -123,6 +124,9 @@
             </div>
         </div>
     </div>
+    <div id="info"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script>dayjs().format()</script>

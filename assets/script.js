@@ -5,16 +5,27 @@ mapboxgl.accessToken = accessToken;
 const map = new mapboxgl.Map({
 container: 'map', // container ID
 center: [-74.5, 40], // starting position [lng, lat]
-zoom: 9 // starting zoom
+zoom: 0 // starting zoom
 });
 
-/* Still does not work properly
-const script = document.getElementById('search-js');
-script.onload = function() {
-mapboxsearch.autofill({
-accessToken
+var searchBar =  new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    reverseGeocode: true
+    });
+
+   
+// Add the control to the map.
+map.addControl(searchBar);
+var city = document.getElementById('city');
+
+searchBar.on('result', function(event){
+var userInput = event.result.text ; 
+console.log('User input:', userInput);
+city.textContent =  userInput;
 });
-};  */
+
+
 
 $(document).ready(function() {
     map.on('mousemove', (e) => {
@@ -109,6 +120,7 @@ $(document).ready(function() {
             }
 
             console.log(temperature, relativeHumidity, apparentTemperature, precipitation, weather, windSpeed);
+            
             $("#temperature").text("Temperature: " + temperature);
             $("#humidity").text("Relative Humidity: " + relativeHumidity);
             $("#feels-like").text("Feels like: " + apparentTemperature);

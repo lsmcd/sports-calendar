@@ -53,7 +53,6 @@
         </div>
     </nav>
 
-    <div class="" id="map"> </div>
 
     <!-- <section class="section">
         <div class="container">
@@ -85,7 +84,7 @@
                             <button class="button is-outlined is-pulled-right"><a href="{{ weather.city }}/delete">Delete</a></button>
 
                         <div class='content'>
-                            <span class ="title" style="text-transform:capitalize;">{{ weather.city }}</span>
+                            <span id="city" class ="title" style="text-transform:capitalize;">{{ weather.city }}</span>
                             <p id="temperature">  Temperature: {{ weather.temperature }}° C </p> 
                             <p id="humidity"> Humidity: {{ weather.humidity }}%</p>
                             <p id="feels-like">Feels Like: {{ weather.feels_like }}° C</p>
@@ -102,25 +101,31 @@
     <div id="settings-menu" id="dropdown-menu" role="menu">
         <div class="">
             <a id="imperial" class="dropdown-item is-active">
-                imperial units
+                Imperial Units
                 <span class="icon">
                 <i class="mdi mdi-checkbox-blank"></i>
             </a>
             <hr class="dropdown-divider">
             <a id="fahrenheit" class="dropdown-item is-active">
-                fahrenheit
+                Fahrenheit
                 <span class="icon">
                 <i class="mdi mdi-checkbox-blank"></i>
             </a>
             <hr class="dropdown-divider">
             <a id="dateorder" class="dropdown-item is-active">
-                month/day/year
+                Month/Day/Year
                 <span class="icon">
                 <i class="mdi mdi-checkbox-blank"></i>
             </a>
         </div>
     </div>
+
+   
     <div id="#settings-menu-root"></div>
+    <div class="" id="map"> </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>

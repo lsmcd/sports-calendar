@@ -1,23 +1,26 @@
-body { 
-    margin: 0; 
-    padding: 0; 
+body {
+    margin: 0;
+    padding: 0;
 }
-#map { 
-    position: absolute; 
-    top: 10%; 
-    bottom: 0px; 
-    width:57%; 
+
+#map {
+    position: absolute;
+    top: 10%;
+    bottom: 0px;
+    width: 57%;
 }
+
 #settings {
     position: absolute;
-    top: 15px; 
-    right:15px;
+    top: 15px;
+    right: 15px;
     width: 40px;
     border-color: white;
 }
+
 #settings-menu {
     display: none;
-    position:absolute;
+    position: absolute;
     top: 40%;
     left: 40%;
     background-color: lightblue;
@@ -25,9 +28,17 @@ body {
     border-radius: 5px;
     z-index: 1000;
 }
-@media screen and (max-width: 768px){
-    #map { position: absolute; top:10%; bottom: 50%; width:100%}
-    aside{
+
+/* Responsive code */
+@media screen and (max-width: 768px) {
+    #map {
+        position: absolute;
+        top: 10%;
+        bottom: 50%;
+        width: 100%;
+    }
+
+    aside {
         position: absolute;
         width: 100%;
         bottom: 0;

@@ -11,7 +11,7 @@ no installation Required just open this link :   in you Web browser
 ## Usage
 - open the link :
 - click on where you want to know the weather in real time 
-- or search by city name 
+- or search by city name then click on the city 
 
 
 ## Authors 
@@ -20,6 +20,11 @@ no installation Required just open this link :   in you Web browser
 - https://github.com/lsmcd
 - https://github.com/jaimetam
 
+## Api
+-  https://bulma.io/
+-  https://docs.mapbox.com/api/overview/
+-  https://day.js.org/
+-  https://open-meteo.com/
 
 
 ## License

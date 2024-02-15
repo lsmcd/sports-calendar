@@ -9,7 +9,7 @@ no installation Required just open this link :   in you Web browser
 
 
 ## Usage
-- open the link :
+- open the link : https://lsmcd.github.io/sports-calendar/
 - click on where you want to know the weather in real time 
 - or search by city name then click on the city 
 

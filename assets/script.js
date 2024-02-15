@@ -39,6 +39,21 @@ $(document).ready(function() {
         console.log(lat, lng);
         getWeather(lat, lng);
     });
+    // $("#settings").hover(function(){
+    //     $("#dropdown-menu").toggleClass("is-active")
+    // }, function(){
+    // });
+    // $("#navbar").hover(function(){
+    // }, function(){
+    //     $("#dropdown-menu").toggleClass("is-active")
+    // });
+    $("#settings").on("click", function(){
+        if ($("#settings-menu").css("display") === "none"){
+            $("#settings-menu").css("display", "flex")
+        } else {
+            $("#settings-menu").css("display", "none")
+        }
+    });
 
     if (localStorage.getItem("imperial")){
         $("#imperial > span > i").toggleClass("mdi-checkbox-blank mdi-checkbox-marked");

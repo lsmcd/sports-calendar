@@ -1,0 +1,19 @@
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 10%; bottom: 0px; width:57%; }
+@media screen and (max-width: 768px){
+    #map { position: absolute; top:10%; bottom: 40%; width:100%}
+}
+#settings {
+    position: absolute; top: 15px; right:15px;
+    width: 40px;
+    border-color: white;
+}
+#settings-menu {
+    display: none;
+    position:absolute;
+    top: 40%;
+    left: 40%;
+    background-color: lightblue;
+    border: 10px solid lightblue;
+    border-radius: 5px;
+}

@@ -6,17 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Click</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/script.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-<style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width:40%; }
-</style>
-<body>
-    <section class="hero is-link">
+<body id="rootEl">
+    <!-- <section class="hero is-link">
         <div class="hero-body">
             <div class="container">
                 <div class="column is-offset-5 is-5">     
@@ -36,14 +31,34 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+    <nav id="navbar" class="navbar" role="navigation" aria-label="dropdown-navigation">
+        <div class="navbar-brand">
+            <i class="navbar-item mdi mdi-weather-lightning mdi-36px"><h1 class="is-size-3">Weather-Click</h1></i>
+                <div class="navbar-item field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" placeholder="Find your city">
+                    </div>
+                    <div class="control">
+                        <a class="button is-info">
+                            Search
+                        </a>
+                    </div>
+                </div>
+            <button id="settings" class="button navbar-item" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span class="icon" >
+                    <i class="mdi mdi-cog mdi-48px" aria-hidden="true"></i>
+                </span>
+            </button>
+        </div>
+    </nav>
 
-    <div id="map"> </div>
+    <div class="" id="map"> </div>
 
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-offset-5 is-5">
+                <div class="column is-offset-7 is-5">
                     <div class="field has-addons">
                         <div class="control is-expanded">
                           <input class="input" type="text" placeholder="Find your city">
@@ -59,12 +74,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-offset-5">
+                <div class="column is-offset-7">
                     <div class="box">
                         <div class="control">
                             <button class="button is-outlined is-pulled-right"><a href="{{ weather.city }}/delete">Delete</a></button>
@@ -84,43 +99,29 @@
             </div>
         </div>
     </section>
-
-    
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p></p>
-        </div>
-    </footer>
-    <div id="settings" class="dropdown is-hoverable is-right">
-        <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span class="icon" >
-                    <i class="mdi mdi-cog mdi-36px" aria-hidden="true"></i>
-                </span>
-            </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-                <a id="imperial" class="dropdown-item is-active">
-                    Imperial Units
-                    <span class="icon">
-                    <i class="mdi mdi-checkbox-blank"></i>
-                </a>
-                <hr class="dropdown-divider">
-                <a id="fahrenheit" class="dropdown-item is-active">
-                    Fahrenheit
-                    <span class="icon">
-                    <i class="mdi mdi-checkbox-blank"></i>
-                </a>
-                <hr class="dropdown-divider">
-                <a id="dateorder" class="dropdown-item is-active">
-                    Month/Day/Year
-                    <span class="icon">
-                    <i class="mdi mdi-checkbox-blank"></i>
-                </a>
-            </div>
+    <div id="settings-menu" id="dropdown-menu" role="menu">
+        <div class="">
+            <a id="imperial" class="dropdown-item is-active">
+                imperial units
+                <span class="icon">
+                <i class="mdi mdi-checkbox-blank"></i>
+            </a>
+            <hr class="dropdown-divider">
+            <a id="fahrenheit" class="dropdown-item is-active">
+                fahrenheit
+                <span class="icon">
+                <i class="mdi mdi-checkbox-blank"></i>
+            </a>
+            <hr class="dropdown-divider">
+            <a id="dateorder" class="dropdown-item is-active">
+                month/day/year
+                <span class="icon">
+                <i class="mdi mdi-checkbox-blank"></i>
+            </a>
         </div>
     </div>
+    <div id="#settings-menu-root"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script>dayjs().format()</script>

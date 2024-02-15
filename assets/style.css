@@ -1,10 +1,17 @@
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 10%; bottom: 0px; width:57%; }
-@media screen and (max-width: 768px){
-    #map { position: absolute; top:10%; bottom: 40%; width:100%}
+body { 
+    margin: 0; 
+    padding: 0; 
+}
+#map { 
+    position: absolute; 
+    top: 10%; 
+    bottom: 0px; 
+    width:57%; 
 }
 #settings {
-    position: absolute; top: 15px; right:15px;
+    position: absolute;
+    top: 15px; 
+    right:15px;
     width: 40px;
     border-color: white;
 }
@@ -16,4 +23,13 @@ body { margin: 0; padding: 0; }
     background-color: lightblue;
     border: 10px solid lightblue;
     border-radius: 5px;
+    z-index: 1000;
+}
+@media screen and (max-width: 768px){
+    #map { position: absolute; top:10%; bottom: 50%; width:100%}
+    aside{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
 }
